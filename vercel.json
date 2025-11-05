@@ -1,6 +1,7 @@
 {
   "buildCommand": "npm run build",
   "installCommand": "npm install",
+  "outputDirectory": "packages/gephi-lite/build",
   "env": {
     "REACT_APP_GITHUB_PROXY": "@github_proxy_url"
   },

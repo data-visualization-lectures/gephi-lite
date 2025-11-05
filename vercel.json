@@ -1,6 +1,6 @@
 {
-  "buildCommand": "npm run build",
-  "installCommand": "npm install",
+  "buildCommand": "npm run build --workspace=@gephi/gephi-lite",
+  "installCommand": "npm install --workspace=@gephi/gephi-lite",
   "outputDirectory": "packages/gephi-lite/build",
   "functions": {
     "api/**/*.ts": {

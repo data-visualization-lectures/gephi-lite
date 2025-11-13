@@ -1,4 +1,5 @@
 {
+  "nodeVersion": "24.x",
   "installCommand": "npm install --legacy-peer-deps",
   "buildCommand": "node_modules/.bin/preconstruct build && npm run build --workspace=@gephi/gephi-lite",
   "outputDirectory": "packages/gephi-lite/build",

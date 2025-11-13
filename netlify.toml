@@ -3,6 +3,10 @@
   command = "npm install --legacy-peer-deps && ./node_modules/.bin/preconstruct build && npm run build --workspace=@gephi/gephi-lite"
   publish = "packages/gephi-lite/build"
 
+[functions]
+  directory = "netlify/functions"
+  node_bundler = "esbuild"
+
 [build.environment]
   # Override the default /gephi-lite/ base so the SPA works from the Netlify site root.
   BASE_URL = "/"

@@ -133,6 +133,8 @@ VITE_GITHUB_PROXY=https://your-domain.com
 
 **注**: 詳細は [デプロイメント](#デプロイメント) セクションを参照してください。
 
+Netlify でデプロイする場合は `/.netlify/functions/github-proxy` がデフォルトで利用されるため、追加の設定は不要です（独自のプロキシを使いたい場合のみ `VITE_GITHUB_PROXY` を上書きしてください）。
+
 ### ローカルビルドとリモートデプロイの最新状況
 
 - 直近の検証では `npm run build --workspace=@gephi/gephi-lite` がローカルで成功し、`packages/gephi-lite/build/` 以下に最新アセットと `gephi-lite-format.schema.json` が生成済みです。Netlify や GitHub Pages に配置する場合はこのディレクトリをそのままアップロードすれば動作します。

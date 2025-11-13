@@ -5,7 +5,8 @@
   "main": "dist/gephi-gephi-lite-broadcast.cjs.js",
   "module": "dist/gephi-gephi-lite-broadcast.esm.js",
   "files": [
-    "dist"
+    "dist",
+    "src"
   ],
   "sideEffects": false,
   "homepage": "https://gephi.org/gephi-lite",

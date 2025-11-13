@@ -5,7 +5,8 @@
   "main": "dist/gephi-gephi-lite-sdk.cjs.js",
   "module": "dist/gephi-gephi-lite-sdk.esm.js",
   "files": [
-    "dist"
+    "dist",
+    "src"
   ],
   "scripts": {
     "test": "vitest run src"

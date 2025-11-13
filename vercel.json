@@ -1,5 +1,5 @@
 {
-  "ignoreCommand": "true",
+  "ignoreCommand": "git diff --quiet HEAD^ HEAD ./",
   "outputDirectory": "packages/gephi-lite/build",
   "functions": {
     "api/**/*.ts": {

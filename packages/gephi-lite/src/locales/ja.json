@@ -1,0 +1,764 @@
+{
+  "appearance": {
+    "color": {
+      "color_all_items": "すべての{{items}}の色",
+      "data": "入力ファイル",
+      "data_description": "すべての{{items}}の色は入力データファイルの値をそのまま使用します。",
+      "default_value": "有効な値がない{{items}}の色",
+      "fixed": "固定色",
+      "quali": "文字列として",
+      "quanti": "数値として",
+      "ranking_intro": "このスケールに色ポイントを追加",
+      "scale_point": "スケールポイント",
+      "set_color_from": "色の参照元...",
+      "source": "ソースノード",
+      "source_description": "各エッジはソースノードと同じ色になります。",
+      "target": "ターゲットノード",
+      "target_description": "各エッジはターゲットノードと同じ色になります。",
+      "title": "色"
+    },
+    "graph": {
+      "background_color": "背景色",
+      "layout_grid_color": "レイアウト評価グリッドの色"
+    },
+    "images": {
+      "data": "入力データ",
+      "data_description": "すべての{{items}}の画像は入力データファイルの値をそのまま使用します。",
+      "default_value": "有効な値がない{{items}}の画像",
+      "fixed": "固定URL",
+      "fixed_label": "全{{items}}で同じ画像",
+      "none": "画像なし",
+      "none_description": "すべての{{items}}で画像は表示されません。",
+      "set_labels_from": "画像の参照元...",
+      "title": "画像"
+    },
+    "labels": {
+      "adapts_to_zoom": "ズームに応じてラベルをどの程度拡大するか",
+      "data": "入力データ",
+      "data_description": "すべての{{items}}のラベルは入力データファイルの値をそのまま使用します。",
+      "default_value": "有効な値がない{{items}}のラベル",
+      "density": "任意の時点で表示するラベルの数",
+      "fixed": "固定テキスト",
+      "fixed_label": "全{{items}}のラベル",
+      "fixed_label_size": "全{{items}}のラベルサイズ",
+      "fixed_size": "固定サイズ",
+      "none": "ラベルなし",
+      "none_description": "すべての{{items}}でラベルは表示されません。",
+      "set_labels_from": "ラベルの参照元...",
+      "set_labels_size_from": "ラベルサイズの参照元...",
+      "size": "{{items}}のサイズ",
+      "size_coef": "ラベルサイズ係数（値を大きくするとラベルが大きく表示されます）",
+      "title": "ラベル"
+    },
+    "no_caption": "(キャプションなし)",
+    "partition": "パーティション",
+    "ranking": "ランキング",
+    "show_edges": "エッジを表示",
+    "size": {
+      "data": "入力ファイル",
+      "data_description": "すべての{{items}}のサイズは入力データファイルの値をそのまま使用します。",
+      "default_value": "有効な値がない{{items}}のサイズ",
+      "fixed": "固定サイズ",
+      "set_size_from": "サイズの参照元...",
+      "size_all_items": "すべての{{items}}のサイズ",
+      "title": "サイズ"
+    },
+    "title": "外観",
+    "transformation_methods": {
+      "linear": "線形",
+      "log": "対数",
+      "pow-2": "2乗",
+      "pow-3": "3乗",
+      "spline": "スプライン",
+      "sqrt": "平方根",
+      "title": "変換方法"
+    }
+  },
+  "auth": {
+    "sign_in": "GitHub にサインイン",
+    "sign_out": "GitHub からサインアウト",
+    "unauth_success": "サインアウトしました"
+  },
+  "cloud": {
+    "github": {
+      "auth": {
+        "asking_for_device_code": "GitHub にデバイスコードを要求しています",
+        "copy_code": "下のコードをコピーして「Open GitHub」をクリックしてください。新しいタブで GitHub が開き、コードの入力を求められます。",
+        "copy_success": "コードをクリップボードに保存しました",
+        "title": "GitHub 認証",
+        "waiting_validation": "検証を待っています"
+      },
+      "title": "GitHub 連携"
+    }
+  },
+  "common": {
+    "add": "追加",
+    "all": "すべて",
+    "apply": "適用",
+    "cancel": "キャンセル",
+    "clear": "クリア",
+    "close": "閉じる",
+    "collapse": "折りたたむ",
+    "confirm": "確認",
+    "copy": "コピー",
+    "created": "作成日時",
+    "delete": "削除",
+    "edit": "編集",
+    "expand": "展開",
+    "filename": "ファイル名",
+    "hide": "非表示",
+    "load-more": "さらに読み込む",
+    "loading": "読み込み中",
+    "max": "最大",
+    "min": "最小",
+    "none": "なし",
+    "open": "開く",
+    "open_code_editor": "コードエディターを開く",
+    "open_file": "{{filename}} を開く",
+    "remove": "削除",
+    "reset": "リセット",
+    "save": "保存",
+    "save-and-run": "保存して実行",
+    "select": "選択...",
+    "show": "表示",
+    "show_less": "折りたたむ",
+    "show_more": "もっと見る",
+    "size": "サイズ",
+    "start": "開始",
+    "stop": "停止",
+    "submit": "送信",
+    "updated": "更新日時"
+  },
+  "context": {
+    "title": "データ概要"
+  },
+  "edition": {
+    "confirm_delete_edges": "{{count, number}} 件のエッジを削除しますか？",
+    "confirm_delete_edges_one": "このエッジを削除しますか？",
+    "confirm_delete_nodes": "{{count, number}} 件のノードを削除しますか？",
+    "confirm_delete_nodes_one": "このノードを削除しますか？",
+    "create_edges": "エッジを新規作成",
+    "create_edges_success": "エッジを作成しました。",
+    "create_nodes": "ノードを新規作成",
+    "create_nodes_success": "ノードを作成しました。",
+    "delete_edges": "{{count, number}} 件のエッジを削除",
+    "delete_edges_one": "エッジを 1 件削除",
+    "delete_edges_zero": "エッジを削除",
+    "delete_nodes": "{{count, number}} 件のノードを削除",
+    "delete_nodes_one": "ノードを 1 件削除",
+    "delete_nodes_zero": "ノードを削除",
+    "delete_this_edges": "このエッジを削除",
+    "delete_this_nodes": "このノードを削除",
+    "search_nodes": "ノードラベルを検索...",
+    "update_edges": "既存のエッジを編集",
+    "update_edges_success": "エッジを更新しました。",
+    "update_nodes": "既存のノードを編集",
+    "update_nodes_success": "ノードを更新しました。",
+    "update_this_edges": "このエッジを編集",
+    "update_this_nodes": "このノードを編集"
+  },
+  "error": {
+    "form": {
+      "required": "必須項目です",
+      "unique": "値は一意である必要があります。同じ値のデータが既に存在します。"
+    },
+    "message": "Gephi Lite を改善中ですが、まだバグが発生することがあります。再現手順を添えて GitHub に issue を作成いただけると助かります。",
+    "not_found": {
+      "paragraph": "入力したアドレスが間違っているか、ページが移動した可能性があります。",
+      "subtitle": "お探しのページは存在しません。",
+      "title": "ページが見つかりません"
+    },
+    "report": "エラーを報告",
+    "retry": "再試行",
+    "title": "エラー",
+    "unknown": "不明なエラーが発生しました。"
+  },
+  "file": {
+    "login_capabilities": "Gephi Lite から GitHub にログインし、グラフファイルを GitHub Gist として保存・読み込みできます。",
+    "title": "データ管理"
+  },
+  "filters": {
+    "activated": "有効なフィルター",
+    "add_filter": "フィルターを追加",
+    "create_filter": "フィルターを作成",
+    "desactivated": "無効化されたフィルター。クリックで再有効化。",
+    "description": "このパネルでは複数のフィルターを重ねてグラフを絞り込めます。",
+    "filter": "フィルター",
+    "full_graph": "グラフ全体",
+    "inapplicable": "利用不可: 値が 1 種類しかありません",
+    "keepMissingValues": "欠損値を保持",
+    "no_concurrent_edit": "同時に編集できるフィルターは 1 つのみです。現在の編集を確定してから他を編集してください。",
+    "range": "範囲",
+    "script": "カスタムフィルター",
+    "terms": "完全一致",
+    "title": "フィルター",
+    "topological": "トポロジー",
+    "using": "使用中",
+    "topology": {
+      "ego": {
+        "core": "深さ: エゴからの最大距離",
+        "direction": {
+          "both": "すべてのエッジ",
+          "in": "入次数エッジ",
+          "label": "方向",
+          "out": "出次数エッジ"
+        },
+        "ego": "エゴノード",
+        "label": "エゴネットワーク"
+      },
+      "kCore": {
+        "core": "k: ノードが持つべき最小次数",
+        "label": "K-コア",
+        "keepSelfLoop": "自己ループを保持"
+      },
+      "largestConnectedComponent": {
+        "label": "連結成分",
+        "number": "保持する最大成分の数"
+      }
+    },
+    "missingValues": "欠損値",
+    "noValueOption": "値なし"
+  },
+  "gephi-lite": {
+    "info": "Gephi Lite について詳しく見る",
+    "title": "Gephi Lite（ジェフィー・ライト）"
+  },
+  "github": {
+    "description": "Gephi Lite から GitHub にログインして、グラフファイルを GitHub Gist として保存・読み込めます。",
+    "logged_as": "現在 {{username}} として GitHub にログインしています。",
+    "select_ui_language": "アプリの表示言語を選択",
+    "title": "GitHub 認証"
+  },
+  "graph": {
+    "caption": {
+      "color": "{{itemType}} の色付け",
+      "disabled": "外観設定を行うとキャプションが表示されます。",
+      "size": "{{itemType}} のサイズ",
+      "title": "キャプション"
+    },
+    "clone_in_new_tab": {
+      "success": "グラフのコピーを新しいタブで開きました。",
+      "title": "新しいタブで複製"
+    },
+    "control": {
+      "fullscreenEnter": "全画面表示にする",
+      "fullscreenExit": "全画面を終了",
+      "zoomIn": "ズームイン",
+      "zoomOut": "ズームアウト",
+      "zoomReset": "グラフ全体を表示"
+    },
+    "export": {
+      "gexf": {
+        "error": "GEXF の書き出しに失敗しました",
+        "success": "GEXF の書き出しを保存しました。",
+        "title": "GEXF を書き出す"
+      },
+      "png": {
+        "fields": {
+          "filename": "ファイル名",
+          "height": "高さ（px）",
+          "preserve_camera": "現在のカメラ位置を保持",
+          "width": "幅（px）"
+        },
+        "success": "PNG スナップショットを保存しました。",
+        "title": "PNG スナップショットを出力"
+      },
+      "title": "グラフを出力"
+    },
+    "metadata": {
+      "description": "説明",
+      "graph-title": "タイトル",
+      "graph-type": "グラフタイプ",
+      "graph-type-directed-warning": "この更新を適用するとすべてのエッジが有向になり、元の向き情報は失われます。",
+      "graph-type-undirected-warning": "この更新を適用するとすべてのエッジが無向になり、元の向き情報は失われます。",
+      "title": "グラフメタデータ"
+    },
+    "model": {
+      "directed": "有向",
+      "edges": "エッジ",
+      "edges-data": {
+        "attribute-name": "属性名",
+        "attribute-value": "属性値",
+        "attributes": "その他の属性",
+        "color": "エッジの色",
+        "id": "エッジ ID",
+        "label": "エッジラベル",
+        "new-attribute": "属性を追加",
+        "source": "エッジのソース",
+        "target": "エッジのターゲット",
+        "weight": "エッジの重み"
+      },
+      "edges_one": "エッジ",
+      "edges_zero": "エッジ",
+      "graph": "グラフ",
+      "mixed": "混合",
+      "no_attributes": "モデルにはまだ属性がありません。",
+      "nodes": "ノード",
+      "nodes-data": {
+        "attribute-name": "属性名",
+        "attribute-value": "属性値",
+        "attributes": "その他の属性",
+        "color": "ノードの色",
+        "id": "ノード ID",
+        "label": "ノードラベル",
+        "new-attribute": "属性を追加",
+        "size": "ノードサイズ",
+        "x": "ノードの X 座標",
+        "y": "ノードの Y 座標"
+      },
+      "nodes_one": "ノード",
+      "nodes_zero": "ノード",
+      "title": "属性モデル",
+      "undirected": "無向",
+      "dynamic": "ダイナミック",
+      "selfLoop": "自己ループ",
+      "degree": "次数"
+    },
+    "open": {
+      "github": {
+        "error": "技術的なエラーが発生しました。接続状況を確認するか、しばらくしてから再試行してください。",
+        "file-open-external": "{{filename}} を GitHub で開く",
+        "no-data": "GitHub に保存された GEXF / GRAPHML / Graphology JSON ファイルはありません。",
+        "select-file": "ファイルを選択",
+        "success": "{{filename}} を読み込みました。",
+        "title": "GitHub からファイルを開く"
+      },
+      "local": {
+        "dragndrop_text": "GEXF / GRAPHML / Graphology JSON ファイルをドラッグ＆ドロップしてください",
+        "error": "ファイルの読み込み中にエラーが発生しました。ファイルが有効か確認してください。",
+        "success": "{{filename}} を読み込みました。",
+        "title": "ローカルファイルを開く"
+      },
+      "new": {
+        "message": "現在のグラフを消去します。続行してよろしいですか？",
+        "success": "空のグラフを読み込みました",
+        "title": "空のグラフを開く"
+      },
+      "remote": {
+        "error": "ファイルの読み込み中にエラーが発生しました。接続とファイルの内容を確認してください。",
+        "success": "{{filename}} を読み込みました。"
+      },
+      "title": "グラフファイルを開く"
+    },
+    "partitioning": {
+      "description": "{{items}} をグループごとに異なる外観やフィルターで扱いたい場合は、ノードのカテゴリ属性でパーティション分割してください。",
+      "missing_partition": "値がない要素は「欠損値」パーティションにまとめられます。",
+      "missing_partition_preview": "値がない要素は「欠損値」パーティションにまとめられます。",
+      "partition": "{{items}} を分割",
+      "status_item": "{{items}} のグループ:",
+      "status_item_preview": "{{items}} の予定グループ:",
+      "status_no_partition": "{{items}} は分割されていません",
+      "status_partition": "属性「{{attribute}}」で {{nbPartitions}} グループに分割。",
+      "title": "パーティション",
+      "warning_nbMissing": "{{nbMissingValues}} 件の {{items}} にこの属性の値がありません。"
+    },
+    "save": {
+      "github": {
+        "error": "グラフの保存中にエラーが発生しました。接続を確認するか後でもう一度お試しください。",
+        "field": {
+          "description": "説明",
+          "filename": "ファイル名",
+          "isPublic": "公開 Gist を作成"
+        },
+        "success": "{{filename}} を保存しました。",
+        "title": "GitHub に保存..."
+      },
+      "local": {
+        "error": "ローカル保存に失敗しました",
+        "success": "グラフをローカルに保存しました",
+        "title": "ローカルに保存"
+      },
+      "name": "保存",
+      "title": "グラフを保存"
+    },
+    "title": "グラフ"
+  },
+  "layouts": {
+    "circlePack": {
+      "description": "指定した属性に従ってノードをバブルチャート状に配置します",
+      "parameters": {
+        "center": {
+          "description": "レイアウトの中心座標",
+          "title": "中心"
+        },
+        "groupingField": {
+          "description": "ノードをグループ化する任意の属性",
+          "title": "階層属性"
+        },
+        "scale": {
+          "description": "レイアウトのスケール",
+          "title": "スケール"
+        }
+      },
+      "title": "CirclePack レイアウト"
+    },
+    "circular": {
+      "description": "ノードを円形に配置します",
+      "parameters": {
+        "center": {
+          "description": "レイアウトの中心",
+          "title": "中心"
+        },
+        "scale": {
+          "description": "レイアウトのスケール",
+          "title": "スケール"
+        }
+      },
+      "title": "Circular レイアウト"
+    },
+    "description": "このパネルではグラフのノードに新しい座標を計算して適用できます。",
+    "exec": {
+      "started": "レイアウト {{layout}} を実行中",
+      "stopped": "レイアウト {{layout}} を停止しました",
+      "success": "レイアウト「{{layout}}」を適用しました。"
+    },
+    "fa2": {
+      "buttons": {
+        "autoSettings": {
+          "description": "現在のグラフに最適な設定を自動生成します",
+          "title": "設定を推測"
+        }
+      },
+      "parameters": {
+        "adjustSizes": {
+          "description": "ノードサイズを計算に含めるかどうか",
+          "title": "サイズを考慮する"
+        },
+        "barnesHutOptimize": {
+          "description": "反発計算を O(n^2) ではなく O(n log n) にする Barnes-Hut 近似を使うかどうか",
+          "title": "Barnes-Hut 最適化"
+        },
+        "barnesHutTheta": {
+          "description": "Barnes-Hut 近似のシータ値",
+          "title": "Barnes-Hut θ"
+        },
+        "edgeWeightInfluence": {
+          "description": "レイアウトにおけるエッジ重みの影響度",
+          "title": "エッジ重みの影響"
+        },
+        "gravity": {
+          "description": "レイアウト重力の強さ",
+          "title": "重力"
+        },
+        "linLogMode": {
+          "description": "Noack の LinLog モデルを使用するかどうか",
+          "title": "LinLog モード"
+        },
+        "outboundAttractionDistribution": {
+          "title": "外向き吸引分布"
+        },
+        "scalingRatio": {
+          "title": "スケーリング比"
+        },
+        "slowDown": {
+          "title": "減速係数"
+        },
+        "strongGravityMode": {
+          "title": "強重力モード"
+        }
+      },
+      "title": "ForceAtlas2 レイアウト"
+    },
+    "force": {
+      "parameters": {
+        "attraction": {
+          "description": "エッジで結ばれたノード同士をバネのように引き寄せる力の強さ",
+          "title": "引力"
+        },
+        "gravity": {
+          "description": "すべてのノードを中心に引き寄せる重力の強さ",
+          "title": "重力"
+        },
+        "inertia": {
+          "description": "各ステップでノードの移動ベクトルをどの割合で保持するか。0 で慣性なし、1 で摩擦なし。",
+          "title": "慣性"
+        },
+        "maxMove": {
+          "description": "1 ステップでノードが移動できる最大距離（px）",
+          "title": "最大移動量"
+        },
+        "repulsion": {
+          "description": "ノード同士を反発させる力の強さ",
+          "title": "反発"
+        }
+      },
+      "title": "力学レイアウト"
+    },
+    "noverlap": {
+      "description": "ノードの衝突を回避するレイアウト",
+      "parameters": {
+        "expansion": {
+          "description": "ノードが現在の領域からどの程度外側へ移動しようとするか",
+          "title": "拡張率"
+        },
+        "gridSize": {
+          "description": "グラフ空間を分割するグリッドの横・縦セル数。1 にすると O(n^2) で動作します。",
+          "title": "グリッドサイズ"
+        },
+        "margin": {
+          "description": "ノード間に確保するマージン",
+          "title": "マージン"
+        },
+        "ratio": {
+          "description": "ノードサイズのスケーリング比率",
+          "title": "比率"
+        },
+        "speed": {
+          "description": "ノードの動きを減速させる係数",
+          "title": "速度"
+        }
+      },
+      "title": "Noverlap レイアウト"
+    },
+    "placeholder": "レイアウトアルゴリズムを選択",
+    "random": {
+      "description": "[0, 1) 区間で一様乱数を使いノードをランダム配置します",
+      "parameters": {
+        "center": {
+          "description": "レイアウトの中心",
+          "title": "中心"
+        },
+        "scale": {
+          "description": "レイアウトのスケール",
+          "title": "スケール"
+        }
+      },
+      "title": "ランダム配置"
+    },
+    "script": {
+      "description": "各ノードに {x,y} を返す関数を記述して独自レイアウトを作成します",
+      "title": "カスタムレイアウト"
+    },
+    "title": "レイアウト"
+  },
+  "metrics": {
+    "attributes_placeholder": "なし",
+    "compute": "メトリクスを計算",
+    "compute_one": "メトリクスを計算",
+    "description": "このパネルではノードやエッジに新しい属性を計算して付与できます。計算した属性は外観設定やフィルターなど他のパネルで利用できます。",
+    "edges": {
+      "disparity": {
+        "attributes": {
+          "disparity": "偏差属性名"
+        },
+        "parameters": {
+          "getEdgeWeight": {
+            "title": "エッジ重み属性"
+          }
+        },
+        "title": "Disparity（偏差）"
+      },
+      "edgescript": {
+        "attributes": {
+          "custom": "結果を保存する属性名"
+        },
+        "description": "エッジのメトリクスを計算する関数を記述します。",
+        "title": "カスタムエッジメトリクス"
+      },
+      "simmelianStrength": {
+        "attributes": {
+          "simmelianStrength": "Simmelian 強度属性名"
+        },
+        "title": "Simmelian 強度"
+      }
+    },
+    "edges_attribute_already_exists": "\"{{field}}\" というエッジ属性は既に存在します。値は上書きされます。",
+    "nodes": {
+      "betweennessCentrality": {
+        "attributes": {
+          "betweennessCentrality": "媒介中心性の属性名"
+        },
+        "parameters": {
+          "getEdgeWeight": {
+            "title": "エッジ重み属性"
+          },
+          "normalize": {
+            "title": "正規化する"
+          }
+        },
+        "title": "媒介中心性"
+      },
+      "degree": {
+        "attributes": {
+          "degree": "次数属性名"
+        },
+        "parameters": {
+          "getEdgeWeight": {
+            "title": "エッジ重み属性"
+          },
+          "kind": {
+            "title": "次数の種類",
+            "values": {
+              "degree": "次数",
+              "inDegree": "入次数",
+              "outDegree": "出次数"
+            }
+          }
+        },
+        "title": "次数"
+      },
+      "hits": {
+        "attributes": {
+          "authorities": "Authority スコアの属性名",
+          "hubs": "Hub スコアの属性名"
+        },
+        "parameters": {
+          "getEdgeWeight": {
+            "title": "エッジ重み属性"
+          },
+          "maxIterations": {
+            "title": "最大反復回数"
+          },
+          "normalize": {
+            "title": "正規化する"
+          },
+          "tolerance": {
+            "title": "許容誤差"
+          }
+        },
+        "title": "HITS 指標"
+      },
+      "louvain": {
+        "attributes": {
+          "modularityClass": "モジュラリティクラス属性名"
+        },
+        "description": "ノードを高密度に接続されたグループへ分割するアルゴリズムです。",
+        "parameters": {
+          "fastLocalMoves": {
+            "description": "キューを用いて効率的に探索する既知の最適化を使用するかどうか。",
+            "title": "高速ローカル移動"
+          },
+          "getEdgeWeight": {
+            "description": "エッジ重みを表す属性を指定します。",
+            "title": "エッジ重み属性"
+          },
+          "randomWalk": {
+            "description": "グラフをランダムウォークでたどるかどうか。",
+            "title": "ランダムウォーク"
+          },
+          "resolution": {
+            "description": "解像度を上げるとコミュニティ数が増える傾向があります。",
+            "title": "解像度"
+          }
+        },
+        "title": "Louvain コミュニティ検出"
+      },
+      "nodescript": {
+        "attributes": {
+          "custom": "結果を保存する属性名"
+        },
+        "description": "ノードのメトリクスを計算する関数を記述します。",
+        "title": "カスタムノードメトリクス"
+      },
+      "pagerank": {
+        "attributes": {
+          "pagerank": "PageRank 属性名"
+        },
+        "parameters": {
+          "alpha": {
+            "title": "アルファ"
+          },
+          "getEdgeWeight": {
+            "title": "エッジ重み属性"
+          },
+          "maxIterations": {
+            "title": "最大反復回数"
+          },
+          "tolerance": {
+            "title": "許容誤差"
+          }
+        },
+        "title": "PageRank 指標"
+      }
+    },
+    "nodes_attribute_already_exists": "\"{{field}}\" というノード属性は既に存在します。値は上書きされます。",
+    "placeholder": "アルゴリズムを選択",
+    "success": "{{items}} メトリクス「{{metrics}}」をデータに追加しました。",
+    "success_one": "{{items}} メトリクス「{{metrics}}」をデータに追加しました。",
+    "title": "メトリクス"
+  },
+  "providers": {
+    "github": "GitHub 連携"
+  },
+  "search": {
+    "edges": {
+      "help": "エッジを検索する文字列を入力",
+      "no_result": "該当するエッジはありません",
+      "other_result": "... ほか {{count, number}} 件のエッジ",
+      "placeholder": "エッジを検索..."
+    },
+    "graph": {
+      "help": "検索文字列を入力してください",
+      "no_result": "結果がありません",
+      "other_result": "... ほか {{count, number}} 件の結果",
+      "placeholder": "ノード・エッジを検索",
+      "select_all_edges": "{{count, number}} 件のエッジを選択に追加",
+      "select_all_nodes": "{{count, number}} 件のノードを選択に追加"
+    },
+    "nodes": {
+      "help": "ノードを検索する文字列を入力",
+      "no_result": "該当するノードはありません",
+      "other_result": "... ほか {{count, number}} 件のノード",
+      "placeholder": "ノードを検索..."
+    }
+  },
+  "selection": {
+    "edge_no_label": "(ラベルなし)",
+    "edges": "選択中のエッジ {{count, number}} 件",
+    "edges_one": "エッジ 1 件を選択中",
+    "edges_zero": "選択中のエッジはありません",
+    "empty_edges": "このエッジには属性がありません",
+    "empty_nodes": "このノードには属性がありません",
+    "focus_edges": "このエッジのみを選択",
+    "focus_nodes": "このノードのみを選択",
+    "hidden_edges": "非表示の選択エッジ {{count, number}} 件",
+    "hidden_edges_one": "非表示の選択エッジ 1 件",
+    "hidden_nodes": "非表示の選択ノード {{count, number}} 件",
+    "hidden_nodes_one": "非表示の選択ノード 1 件",
+    "locate_on_graph": "グラフ上で表示",
+    "node_no_label": "(ラベルなし)",
+    "nodes": "選択中のノード {{count, number}} 件",
+    "nodes_one": "ノード 1 件を選択中",
+    "nodes_zero": "選択中のノードはありません",
+    "select_all": "すべて選択",
+    "unselect_all": "すべて選択解除",
+    "unselect_all_hidden_edges": "非表示エッジの選択を解除",
+    "unselect_all_hidden_nodes": "非表示ノードの選択を解除",
+    "unselect_edges": "このエッジの選択を解除",
+    "unselect_nodes": "このノードの選択を解除",
+    "visible_edges": "表示中の選択エッジ {{count, number}} 件",
+    "visible_edges_one": "表示中の選択エッジ 1 件",
+    "visible_edges_zero": "表示中の選択エッジなし",
+    "visible_nodes": "表示中の選択ノード {{count, number}} 件",
+    "visible_nodes_one": "表示中の選択ノード 1 件",
+    "visible_nodes_zero": "表示中の選択ノードなし"
+  },
+  "settings": {
+    "danger-zone": {
+      "reset-state": {
+        "description": "ローカルに保存した設定を含め、すべてのデータが削除されます。本当に実行しますか？",
+        "success": "アプリケーションの状態を初期化しました",
+        "title": "アプリ状態をリセット"
+      },
+      "title": "危険ゾーン"
+    },
+    "title": "ユーザー設定"
+  },
+  "storage": {
+    "cannot_restore": "グラフを復元できませんでした。",
+    "restore_successful": "作業中のグラフを復元しました。"
+  },
+  "user": {
+    "avatar_alt": "{{name}} のアバター"
+  },
+  "welcome": {
+    "disclaimer-1": "Gephi Lite は開発中のプロジェクトです。",
+    "disclaimer-2": "GitHub プロジェクトで今後の機能やバグ報告をご覧ください。",
+    "logo": "Gephi ロゴ",
+    "no_recent": "このブラウザではリモートファイルをまだ開いていません。",
+    "open_graph": "グラフファイルを開く",
+    "open_recent": "最近のファイル",
+    "samples": "サンプル",
+    "title": "Gephi Lite へようこそ"
+  }
+}

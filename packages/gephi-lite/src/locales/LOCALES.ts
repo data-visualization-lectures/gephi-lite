@@ -2,12 +2,17 @@ import dev from "./dev.json";
 import en from "./en.json";
 import fr from "./fr.json";
 import hu from "./hu.json";
+import ja from "./ja.json";
 import ko from "./ko.json";
 
 export const LOCALES = {
   dev: {
     translation: dev,
     label: "Dev language",
+  },
+  ja: {
+    translation: ja,
+    label: "日本語",
   },
   en: {
     translation: en,
@@ -27,4 +32,4 @@ export const LOCALES = {
   },
 };
 
-export const DEFAULT_LOCALE = import.meta.env.NODE_ENV !== "production" ? "dev" : "en";
+export const DEFAULT_LOCALE = import.meta.env.NODE_ENV !== "production" ? "dev" : "ja";

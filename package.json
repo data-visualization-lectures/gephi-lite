@@ -8,13 +8,13 @@
   ],
   "scripts": {
     "clean": "npm exec --workspaces -- npx rimraf node_modules && npx rimraf node_modules",
-    "start": "npx @preconstruct/cli@^2.8.10 dev && npm run start --workspace=@gephi/gephi-lite",
+    "start": "npx preconstruct dev && npm run start --workspace=@gephi/gephi-lite",
     "test": "npm run test --workspaces --if-present",
     "test:e2e": "npm run test:e2e --workspaces --if-present",
     "lint": "eslint .",
-    "build": "npx @preconstruct/cli@^2.8.10 build && npm run build --workspace=@gephi/gephi-lite",
-    "postinstall": "npx @preconstruct/cli@^2.8.10 dev",
-    "postpublish": "npx @preconstruct/cli@^2.8.10 dev",
+    "build": "npx preconstruct build && npm run build --workspace=@gephi/gephi-lite",
+    "postinstall": "npx preconstruct dev",
+    "postpublish": "npx preconstruct dev",
     "prepublishOnly": "npm run test && npm run lint && npm run build"
   },
   "devDependencies": {

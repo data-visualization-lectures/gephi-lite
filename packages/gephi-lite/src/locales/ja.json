@@ -805,7 +805,10 @@
     "open_graph": "グラフファイルを開く",
     "open_recent": "最近のファイル",
     "samples": "サンプル",
-    "title": "Gephi Lite へようこそ"
+    "title": "Gephi Lite へようこそ",
+    "documentation": "ドキュメント（英語）",
+    "website": "ウェブサイト（英語）"
+
   },
   "workspace": {
     "menu": {

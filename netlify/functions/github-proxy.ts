@@ -4,9 +4,10 @@ const DEFAULT_HEADERS = {
   "Access-Control-Allow-Headers": "Content-Type, Authorization, User-Agent",
 };
 
-const FORWARD_HEADER_KEYS = ["authorization", "content-type", "user-agent"] as const;
+const FORWARD_HEADER_KEYS = ["authorization", "content-type", "user-agent", "accept"] as const;
 
 const DEFAULT_USER_AGENT = "Gephi-Lite/1.0 (+https://gephi.org/gephi-lite)";
+const DEFAULT_ACCEPT = "application/json";
 
 export const handler = async (event: any) => {
   // Preflight
@@ -39,9 +40,8 @@ export const handler = async (event: any) => {
     }
   });
 
-  if (!forwardHeaders["user-agent"]) {
-    forwardHeaders["user-agent"] = DEFAULT_USER_AGENT;
-  }
+  forwardHeaders["user-agent"] = forwardHeaders["user-agent"] || DEFAULT_USER_AGENT;
+  forwardHeaders["accept"] = forwardHeaders["accept"] || DEFAULT_ACCEPT;
 
   let body: string | undefined;
   if (event.body && event.httpMethod !== "GET" && event.httpMethod !== "HEAD") {

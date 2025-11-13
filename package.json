@@ -12,7 +12,7 @@
     "test": "npm run test --workspaces --if-present",
     "test:e2e": "npm run test:e2e --workspaces --if-present",
     "lint": "eslint .",
-    "build": "npx @preconstruct/cli@^2.8.10 build && npm run build --workspace=@gephi/gephi-lite",
+    "build": "npx @preconstruct/cli@^2.8.10 build --filter=packages/sdk --filter=packages/broadcast && npm run build --workspace=@gephi/gephi-lite",
     "postinstall": "npx @preconstruct/cli@^2.8.10 dev",
     "postpublish": "npx @preconstruct/cli@^2.8.10 dev",
     "prepublishOnly": "npm run test && npm run lint && npm run build"

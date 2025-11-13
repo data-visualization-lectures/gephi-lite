@@ -14,6 +14,10 @@ export const LOCALES = {
     translation: ja,
     label: "日本語",
   },
+  ko: {
+    translation: ko,
+    label: "한국인",
+  },
   en: {
     translation: en,
     label: "English",
@@ -25,11 +29,7 @@ export const LOCALES = {
   hu: {
     translation: hu,
     label: "Magyar",
-  },
-  ko: {
-    translation: ko,
-    label: "한국인",
-  },
+  }
 };
 
 export const DEFAULT_LOCALE = import.meta.env.NODE_ENV !== "production" ? "dev" : "ja";

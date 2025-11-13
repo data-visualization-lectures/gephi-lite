@@ -1,5 +1,5 @@
 {
-  "buildCommand": "npm install && npx preconstruct build && npm run build --workspace=@gephi/gephi-lite",
+  "buildCommand": "npm install --legacy-peer-deps && npx preconstruct build && npm run build --workspace=@gephi/gephi-lite",
   "outputDirectory": "packages/gephi-lite/build",
   "functions": {
     "api/**/*.ts": {

@@ -1,5 +1,5 @@
 {
-  "buildCommand": "skip",
+  "buildCommand": null,
   "outputDirectory": "packages/gephi-lite/build",
   "functions": {
     "api/**/*.ts": {

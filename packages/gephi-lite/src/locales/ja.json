@@ -810,10 +810,10 @@
   "workspace": {
     "menu": {
       "duplicate": "ワークスペースをクローン",
-      "export_graph_file": "グラフファイルをエクスポート",
-      "export_image": "画像ファイルをエクスポート",
-      "github_signin": "Sign-in to GitHub",
-      "github_signout": "Disconnect from GitHub",
+      "export_graph_file": "グラフ（gexf）ファイルをエクスポート",
+      "export_image": "画像（png）ファイルをエクスポート",
+      "github_signin": "GitHub へログイン",
+      "github_signout": "GitHub との接続解除",
       "new": "新しいワークスペースを作成",
       "open": "開く...",
       "save": "保存",

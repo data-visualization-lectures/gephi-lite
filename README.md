@@ -1,120 +1,223 @@
 # Gephi Lite
 
-Gephi Lite is a free and open-source web application to visualize and explore networks and graphs. It is a web-based, lighter version of [Gephi](https://gephi.org/). You can try it here:
+Gephi Lite はネットワークとグラフを可視化・探索するための、無料のオープンソースWebアプリケーションです。デスクトップ版の [Gephi](https://gephi.org/) の軽量Web版です。
 
-**[gephi.org/gephi-lite](https://gephi.org/gephi-lite)**
+**[gephi.org/gephi-lite](https://gephi.org/gephi-lite)** で試すことができます。
 
-It is currently under active developments, so features can evolve quite quickly. Feel free to report bugs or ask for new features in the [issues board](https://github.com/gephi/gephi-lite/issues).
+本プロジェクトは活発に開発中のため、機能は迅速に進化する可能性があります。バグ報告や機能リクエストは [issues board](https://github.com/gephi/gephi-lite/issues) でお願いします。
 
-You can read more about the intent of this project on the [Gephi blog](https://gephi.wordpress.com/2022/11/15/gephi-lite/).
+## ライセンス
 
-## License
+Gephi Lite のソースコードは [GNU General Public License v3](http://www.gnu.org/licenses/gpl.html) の下で配布されています。
 
-Gephi Lite source code is distributed under the [GNU General Public License v3](http://www.gnu.org/licenses/gpl.html).
+## リポジトリ構成
 
-## Repository structure
+コードベースは [monorepo](https://en.wikipedia.org/wiki/Monorepo) として構成されています：
 
-The codebase is organized as a [monorepo](https://en.wikipedia.org/wiki/Monorepo):
+- **[packages/gephi-lite](packages/gephi-lite)** - Gephi Lite アプリケーション本体
+- **[packages/sdk](packages/sdk) ([`@gephi/gephi-lite-sdk` on NPM](https://www.npmjs.com/package/@gephi/gephi-lite))** - コア型とユーティリティ
+- **[packages/broadcast](packages/broadcast) ([`@gephi/gephi-lite-broadcast` on NPM](https://www.npmjs.com/package/@gephi/gephi-lite-sdk))** - 別タブ・フレームから Gephi Lite を制御するためのTypeScript ヘルパー
 
-- **[packages/gephi-lite](packages/gephi-lite)** contains Gephi Lite application code
-- **[packages/sdk](packages/sdk) ([`@gephi/gephi-lite-sdk` on NPM](https://www.npmjs.com/package/@gephi/gephi-lite))** contains core Gephi Lite types and utils
-- **[packages/broadcast](packages/broadcast) ([`@gephi/gephi-lite-broadcast` on NPM](https://www.npmjs.com/package/@gephi/gephi-lite-sdk))** exports TypeScript helpers to control a Gephi Lite instance in another tab or frame, from other web application
+## ローカルでの実行
 
-## Run locally
+Gephi Lite は [TypeScript](https://www.typescriptlang.org/) と [React](https://react.dev/) で記述されたWebアプリケーションです。スタイルは [SASS](https://sass-lang.com/) で書かれており、[Bootstrap v5](https://getbootstrap.com/) に基づいています。
 
-Gephi Lite is a web application, written using [TypeScript](https://www.typescriptlang.org/) and [React](https://react.dev/). The styles are written using [SASS](https://sass-lang.com/), and are based on [Bootstrap v5](https://getbootstrap.com/).
+グラフレンダリングに [sigma.js](https://www.sigmajs.org/) を、グラフモデルとグラフアルゴリズムに [graphology](https://graphology.github.io/) を使用しています。[Vite](https://vitejs.dev/) でビルドされています。
 
-Gephi Lite uses [sigma.js](https://www.sigmajs.org/) for graph rendering, and [graphology](https://graphology.github.io/) as the graph model as well as for graph algorithms. It is built using [Vite](https://vitejs.dev/).
+### 必要な環境
 
-To build Gephi Lite locally, you first need a recent version of [Node.js](https://nodejs.org/en) with [NPM](https://www.npmjs.com/) installed on your computer. You can then install the dependencies by running `npm install` in Gephi Lite's directory.
+- [Node.js](https://nodejs.org/en) の最新バージョン
+- [NPM](https://www.npmjs.com/)
 
-Now, in the project directory, you can run:
+### ローカルインストール
 
-### `npm start`
+#### ステップ1: 依存関係のインストール
 
-Runs the app in the development mode.\
-Open [http://localhost:5173/gephi-lite](http://localhost:5173/gephi-lite) to view it in the browser.
+```bash
+npm install --legacy-peer-deps
+```
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+**注**: `graphology` のバージョン競合を解決するため、`--legacy-peer-deps` フラグが必要です。
 
-### `npm test`
+#### ステップ2: 開発サーバーの起動
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+```bash
+npm start
+```
 
-End-to-end tests can be run with playwright.
+開発モードでアプリケーションが起動します。
+ブラウザで [http://localhost:5173/gephi-lite](http://localhost:5173/gephi-lite) を開いて確認できます。
 
-First make sure to install browsers : `npx playwright install`
+ファイルを編集すると、ページが自動的にリロードされます。
+コンソールにはリント エラーが表示されます。
 
-Then start the e2e tests : `npm run test:e2e`
+### テストの実行
 
-If you have updated the project style/layout, you will have to delete the saved screenshot in /e2e/_.spec.ts-snapshots/_, and then run the e2e test to regenerate them.
+#### ユニットテスト
 
-### `npm run build`
+```bash
+npm test
+```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+インタラクティブな watch モードでテストランナーを起動します。
 
-The build is minified and the filenames include the hashes.\
-Your Gephi Lite is ready to be deployed!
+#### E2E テスト（Playwright）
+
+まず、ブラウザをインストールします：
+
+```bash
+npx playwright install
+```
+
+その後、E2E テストを実行します：
+
+```bash
+npm run test:e2e
+```
+
+プロジェクトのスタイル・レイアウトを変更した場合は、`/e2e/*.spec.ts-snapshots/` に保存されたスクリーンショットを削除してから、E2E テストを再度実行してスクリーンショットを再生成してください。
+
+## ビルド
+
+### ローカルビルド（本番用）
+
+```bash
+npm run build
+```
+
+本番用にアプリケーションを `build` フォルダにビルドします。
+
+- React は本番モードで正しくバンドルされます
+- ビルドは最小化されファイル名にハッシュが付きます
+- Gephi Lite はデプロイ可能な状態になります
+
+**ビルド結果**:
+- `build/index.html` - HTML エントリーポイント
+- `build/assets/` - バンドルされた JavaScript・CSS・フォント
+
+### Vercel でのリモートビルド
+
+本プロジェクトは Vercel での自動ビルド・デプロイに対応しています。
+
+#### ビルドコマンド
+
+`vercel.json` で定義されているビルドコマンド：
+
+```bash
+npm install && npx preconstruct build && npm run build --workspace=@gephi/gephi-lite
+```
+
+#### デプロイフロー
+
+1. コードを GitHub にプッシュ
+   ```bash
+   git add .
+   git commit -m "Your changes"
+   git push origin main
+   ```
+
+2. Vercel が自動的に以下を実行
+   - 依存関係のインストール
+   - SDK・Broadcast パッケージのビルド（Preconstruct）
+   - メインアプリケーションのビルド
+
+3. 完了後、`packages/gephi-lite/build/` が本番環境にデプロイされます
+
+#### 環境変数
+
+GitHub との連携が必要な場合、以下の環境変数を Vercel のダッシュボードで設定してください：
+
+```
+VITE_GITHUB_PROXY=https://your-domain.com
+```
+
+**注**: 詳細は [デプロイメント](#デプロイメント) セクションを参照してください。
 
 ## Docker
 
-Docker allows building and running Gephi lite in a controlled environment without installing npm and project dependencies on your host system.
+Docker を使用すると、NPM や依存関係をホストシステムにインストールせずに、制御された環境で Gephi Lite をビルド・実行できます。
 
-### Docker compose for development
+### 開発用 Docker Compose
 
-The docker compose provided in this repository is designed for **local development** not for production.
+このリポジトリの Docker Compose は **ローカル開発用** です。
 
-Make sure you have a fresh version of [Docker](https://docs.docker.com/get-docker/) and [Docker Compose](https://docs.docker.com/compose/install/linux/) plugin. Effective July 2023 Compose is now integrated into all current Docker Desktop versions.
+#### 前提条件
 
-#### `docker compose build`
+- [Docker](https://docs.docker.com/get-docker/)
+- [Docker Compose](https://docs.docker.com/compose/install/linux/) プラグイン（Docker Desktop 2023年7月以降は統合）
 
-Builds or rebuilds docker image from your git checkout
+#### コマンド
 
-#### `docker compose up`
-
-Starts Gephi Lite with previously prebuilt image
-
-#### `docker compose down`
-
-Stops container and frees all the resources obtained by the container.
-
-### Dockerfile for production
-
-The Dockerfile provided in this repository is designed for **production**.
-The application is build and then served by nginx, which its port is exposed by docker
-
-- Build the project :
-
-```
-$> export BASE_URL="./"
-$> npm run build
+イメージをビルド：
+```bash
+docker compose build
 ```
 
-- Build the image : `docker build -f Dockerfile -t gephi-lite .`
-- Create & run a container : `docker run -p 80:80 gephi-lite`
-
-### Any custom `npm` command
-
-Run `docker compose run --entrypoint sh gephi-lite` and you'll get into the shell where you can run all the `npm` commands from above
-
-## Deploy the application
-
-To allow users to synchronize their data with GitHub, Gephi Lite needs a reverse proxy to avoid CORS issues. When working locally in development, [we use `http-proxy-middleware`](https://github.com/gephi/gephi-lite/blob/main/vite.config.js) to make that work.
-
-To deploy the application, you need to define the env variable `VITE_GITHUB_PROXY` before building it, by following those steps:
-
-```
-$> VITE_GITHUB_PROXY=mydomain.for.github.auth.proxy.com
-$> npm install
-$> npm run build
+プリビルドイメージで起動：
+```bash
+docker compose up
 ```
 
-On [gephi.org/gephi-lite](https://gephi.org/gephi-lite) we use this setting : `VITE_GITHUB_PROXY: "https://githubapi.gephi.org"`.
+コンテナを停止してリソースを解放：
+```bash
+docker compose down
+```
 
-Then on our server, we configured NGINX with this following settings:
+### 本番用 Dockerfile
+
+このリポジトリの Dockerfile は **本番環境用** です。
+アプリケーションがビルドされ、nginx で提供されます。
+
+ビルド：
+```bash
+export BASE_URL="./"
+npm run build
+```
+
+Docker イメージをビルド：
+```bash
+docker build -f Dockerfile -t gephi-lite .
+```
+
+コンテナを作成・実行：
+```bash
+docker run -p 80:80 gephi-lite
+```
+
+### カスタム NPM コマンド
+
+Docker コンテナ内でシェルを起動：
+```bash
+docker compose run --entrypoint sh gephi-lite
+```
+
+これで上記のすべての NPM コマンドを実行できます。
+
+## デプロイメント
+
+ユーザーが GitHub にデータを同期できるようにするため、Gephi Lite は CORS の問題を回避するためにリバースプロキシが必要です。ローカル開発では、[`http-proxy-middleware`](https://github.com/gephi/gephi-lite/blob/main/vite.config.js) を使用しています。
+
+### デプロイ手順
+
+1. ビルド前に環境変数を設定：
+
+```bash
+export VITE_GITHUB_PROXY=mydomain.for.github.auth.proxy.com
+npm install
+npm run build
+```
+
+2. `build` ディレクトリをサーバーにデプロイ
+
+#### Gephi.org での設定例
+
+[gephi.org/gephi-lite](https://gephi.org/gephi-lite) では、以下の設定を使用しています：
+
+```
+VITE_GITHUB_PROXY: "https://githubapi.gephi.org"
+```
+
+NGINX リバースプロキシ設定例：
 
 ```nginx
 server {
@@ -142,4 +245,26 @@ server {
 }
 ```
 
-PS: On this configuration you should change the `server_name` with its ssl configuration, as well as the `add_header Access-Control-Allow-Origin` value.
+**注**: `server_name` と SSL 設定、`Access-Control-Allow-Origin` の値を環境に合わせて変更してください。
+
+## トラブルシューティング
+
+### unplugin-typia のエラーが出る場合
+
+開発サーバー起動時に `unplugin-typia` 関連のエラーが表示される場合は、以下を実行：
+
+```bash
+rm -rf node_modules package-lock.json
+npm install --legacy-peer-deps
+npm start
+```
+
+### ビルドエラー
+
+本番ビルドで問題が生じた場合：
+
+```bash
+npm run build
+```
+
+を実行して、エラーメッセージを確認してください。

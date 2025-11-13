@@ -10,7 +10,6 @@
     "test": "vitest run src",
     "test:e2e": "playwright test",
     "generate-json-schema": "typescript-json-schema src/core/file/types.ts GephiLiteFileFormat -o build/gephi-lite-format.schema.json",
-    "prepare": "ts-patch install && typia patch",
     "i18n-checker": "tsx ./scripts/i18n-checker.ts"
   },
   "browserslist": {

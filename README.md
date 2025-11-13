@@ -268,3 +268,63 @@ npm run build
 ```
 
 を実行して、エラーメッセージを確認してください。
+
+
+
+# Claude Codeによる修正失敗の歴史
+
+⏺ 修正履歴を俯瞰します：
+
+  修正履歴の系統図（新→古）
+
+  フェーズ 1: 開発サーバーエラーの解決（最初）
+
+  1. e737fb2 - ローカルビルドのエラーを解消
+  2. d4c6ce3, aed5014 - SDK・Broadcast の files パス修正（/dist → dist、src 追加）
+  3. e3316e3 - 不正な index.ts ディレクトリ削除
+
+  フェーズ 2: Vercel ビルド前のセットアップ
+
+  4. 4c23a44 - 日本語 README 追加
+  5. 0e78fcc - .npmrc に legacy-peer-deps=true 追加（graphology 競合解決）
+  6. 0aa94e2 - vercel.json に --legacy-peer-deps フラグ追加
+
+  フェーズ 3: package-lock.json 問題（ここから泥沼へ）
+
+  7. 4f53d87 - package-lock.json 削除（古いバージョン参照を避けるため）
+  8. ffa437e - 新しい package-lock.json 再生成
+
+  フェーズ 4: Preconstruct バージョン地獄（根本的な誤り開始）
+
+  9. b066ff9 - prepare スクリプト削除（typia patch）
+  10. 034d4e0 - npm scripts に @preconstruct/cli@^2.8.10 を明示指定
+  11. 541baa1 - vercel.json の buildCommand にも版を指定
+  12. 34ef3bd - gephi-lite に preconstruct: { ignore: true } 追加（誤った解決試行）
+  13. 06f1c26 - --filter オプション追加試行（失敗）
+
+  フェーズ 5: 根本原因の発見と修正（最終段階）
+
+  14. 046e81b - @preconstruct/cli をバージョン固定（^2.8.10 → 2.8.10）
+  15. a825b83 - scripts から版指定削除（npx @preconstruct/cli@^2.8.10 → npx preconstruct）
+  16. 7fe84d5 - 最終修正：node_modules/.bin/preconstruct で直接指定
+
+  ---
+  問題の本質（後付け分析）
+
+  | 段階  | 問題                                                          | 原因                                 | 解決策
+          |
+  |-----|-------------------------------------------------------------|------------------------------------|---------------------|
+  | 初期  | unplugin-typia エラー                                          | vite.config から削除していない              |
+  vite.config から削除 ✅  |
+  | 中期  | Vercel で古い preconstruct 参照                                  | npx が NPM registry から 0.3.2 ダウンロード |
+  devDependencies に固定 |
+  | 後期  | scripts で npx @preconstruct/cli@^2.8.10 指定しても 2.8.12 ダウンロード | npx の挙動が版指定に従わない
+     | 直接パスで実行             |
+
+  ---
+  反省点
+
+  1. ドキュメント確認なし → エラーに反応して推測で修正
+  2. ローカル確認不足 → Vercel エラー後、ローカルで確認するのが遅かった
+  3. 根本原因分析不足 → package-lock.json、バージョン、npx の動作を理解せず
+  4. 同じエラーの繰り返し → preconstruct バージョン問題に気づくまで 6-7 回修正

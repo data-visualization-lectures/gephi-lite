@@ -13,7 +13,7 @@
     "test:e2e": "npm run test:e2e --workspaces --if-present",
     "lint": "eslint .",
     "build": "node_modules/.bin/preconstruct build && npm run build --workspace=@gephi/gephi-lite",
-    "postinstall": "npx preconstruct dev",
+    "postinstall": "./node_modules/.bin/preconstruct dev",
     "prepublishOnly": "npm run test && npm run lint && npm run build"
   },
   "devDependencies": {
